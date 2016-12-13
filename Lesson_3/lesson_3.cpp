@@ -1,10 +1,11 @@
+/// 画一个三角形
 #include <stdio.h>
 #include <GL/glew.h>        // GLEW扩展库
 #include <GL/freeglut.h>  // freeGLUT图形库
 #include "math_3d.h" // 用于OpenGL的3d数学库
 
 GLuint VBO;
-#pragma comment(lib, "glew32.lib")
+#pragma comment(lib, "glew32d.lib")
 /**
 * 渲染回调函数
 */

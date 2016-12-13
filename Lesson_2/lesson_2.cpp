@@ -51,12 +51,6 @@ static void CreateVertexBuffer() {
 
 }
 
-void MyDisplay(void) {
-	glClear(GL_COLOR_BUFFER_BIT);
-	glColor3f(1.0f, 0.0f, 0.0f);
-	glRectf(-0.5f, -0.5f, 0.5f, 0.5f);
-	glFlush();
-}
 
 int main(int argc, char ** argv) {
 	// 初始化
@@ -70,7 +64,7 @@ int main(int argc, char ** argv) {
 	glutCreateWindow("Lesson 02");
 
 	// 开始渲染
-	glutDisplayFunc(&MyDisplay);
+	glutDisplayFunc(&RenderScenceCB);
 	
 	// 检查GLEW是否就绪,必须要在GLUT初始化之后!
 	GLenum res = glewInit();
