@@ -1,4 +1,4 @@
-# Oh-Good-Luck
+# Open-Good-Luck
 OpenGL (Open Graphics Library)
 
 1. 配置VS2013,使用cmake+VS编译freeglut3.0,使用vs编译glew2.0
@@ -16,7 +16,7 @@ OpenGL (Open Graphics Library)
      * glutCreateWindow("Ztory's First OpenGL Program");
          * 创建窗口并设置标题
      * **glClearColor(1.0f, 1.0f, 1.0f, 1.0f);**
-         * 设置颜色缓冲区
+         * 设置颜色缓冲区默认颜色
          * 参数RGBA, 范围0.0f~1.0f
      * gluOrtho2D(0.0, 200.0, 0.0, 150.0);
          * 用来在投影矩阵中画矩形
@@ -52,13 +52,28 @@ OpenGL (Open Graphics Library)
          * 所以结尾要跟上关闭数据库(顶点属性)的过程,即glDisableVertexAttribArray(0);
          * 参数是顶点的索引值(index)
          * 一定要在"glDraw*"系列函数之前
-     * GLuint VBO;
-         * 全局变量,顶点
      * **glGenBuffers(1, &VBO);**
          * 生成1个缓冲区对象,并保存在VBO数组中
          * 参数是生成缓冲区对象数目以及用来存储缓冲区对象的数组
          * 生成的对象不保证是连续的整数,但是保证是之前没有用过的
          * 可以使用glDeleteBuffers(n,*buffer)来删除指定缓冲区的n个对象
-     * **glBindBuffer(GL_ARRAY_BUFFER, VBO);**
-         * 绑定
-   # // TO BE CONTINUED
+     * glDrawArrays(GL_POINTS, 0, 1);
+         * 从数组中渲染图元,此处使用的是GL_POINTS,还有别的很多可选参数
+         * 参数图元类型,数组起始位置,顶点数量
+         * 数组为之前glBindBuffer所绑定的缓冲区数组
+     * glutSwapBuffers();
+         * 对应之前设置的双缓存glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA),未使用双缓存则等于glFlush();
+         * 交换前后缓存,即显示缓存区内容
+         * 自带隐式glFlush(),即强制刷新
+         * ***后续的OpenGL命令可以在调用glutSwapBuffers之后立即发出，但在缓冲区交换完成之前不会执行***
+ * 一五得五,二五一十,三五太难了:
+     * **glBindBuffer(GL_ARRAY_BUFFER, VBO);**  // 绑定一个缓冲区对象,GL_ARRAY_BUFFER指顶点属性(Vertex attributes)
+     * **glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);**
+     * **glBufferData(GL_ARRAY_BUFFER, sizeof(Vertices), Vertices, GL_STATIC_DRAW);**  // Vector3f Vertices[1];
+5. lesson_3:创建窗口,画三角形
+ * Lens:
+     * glDrawArrays(GL_TRIANGLES, 0, 3);
+         * 从数组中渲染图元,此处使用的是GL_TRIANGLES,还有别的很多可选参数
+         * 参数图元类型,数组起始位置,顶点数量
+         * 数组为之前glBindBuffer所绑定的缓冲区数组
+# // TO BE CONTINUED

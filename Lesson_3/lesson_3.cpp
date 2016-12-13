@@ -28,8 +28,6 @@ static void RenderScenceCB(){
 
 	// ½»»»Ç°ºó»º´æ
 	glutSwapBuffers();
-
-	glFlush();
 }
 
 /**
