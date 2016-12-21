@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <GL/glew.h>
 #include <GL/freeglut.h>
-#include <ogldev/ogldev_util.h>
-#include <ogldev/ogldev_math_3d.h>
+#include "ogldev_util.h"
+#include "ogldev_math_3d.h"
 
-#pragma comment(lib,"assimp.lib")
+
 GLuint VBO;
 
 const char *pVSFileName = "shader.vs";
@@ -80,7 +80,6 @@ static void CompileShader(){
 		fprintf(stderr, "Error creating shader program\n");
 		exit(1);
 	}
-
 	// 存储着色器文本的字符串缓冲
 	string vs, fs;
     // 分别读取着色器文件中的文本到字符串缓冲区
