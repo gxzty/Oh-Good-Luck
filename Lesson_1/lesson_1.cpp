@@ -27,5 +27,6 @@ void MyDisplay(void) {
 	glClear(GL_COLOR_BUFFER_BIT);
 	glColor3f(1.0f, 0.0f, 0.0f);
 	glRectf(-0.5f, -0.5f, 0.5f, 0.5f);
+	printf("1");  // 测试回调函数调用次数
 	glFlush();
 }
