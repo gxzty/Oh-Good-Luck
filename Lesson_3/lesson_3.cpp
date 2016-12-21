@@ -5,49 +5,9 @@
 #include "ogldev_math_3d.h" // 用于OpenGL的3d数学库
 
 GLuint VBO;
-/**
-* 渲染回调函数
-*/
-static void RenderScenceCB(){
-	// 清空颜色缓存
-	glClear(GL_COLOR_BUFFER_BIT);
 
-	// 开启顶点属性
-	glEnableVertexAttribArray(0);
-	// 绑定GL_ARRAY_BUFFER缓冲器
-	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	// 告诉管线怎样解析bufer中的数据
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
-
-	// 开始绘制几何图形(绘制一个三角形，三个顶点)
-	glDrawArrays(GL_TRIANGLES, 0, 3);
-
-	//  禁用顶点数据
-	glDisableVertexAttribArray(0);
-
-	// 交换前后缓存
-	glutSwapBuffers();
-}
-
-/**
-* 创建顶点缓冲器
-*/
-static void CreateVertexBuffer()
-{
-	// 创建含有3个顶点的顶点数组
-	Vector3f Vertices[3];
-	// 三角形的三个顶点位置
-	Vertices[0] = Vector3f(-1.0f, -1.0f, 0.0f);
-	Vertices[1] = Vector3f(1.0f, -1.0f, 0.0f);
-	Vertices[2] = Vector3f(0.0f, 1.0f, 0.0f);
-
-	// 创建缓冲器
-	glGenBuffers(1, &VBO);
-	// 绑定GL_ARRAY_BUFFER缓冲器
-	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	// 绑定顶点数据
-	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertices), Vertices, GL_STATIC_DRAW);
-}
+static void RenderScenceCB();  // 渲染回调函数
+static void CreateVertexBuffer();  // 创建顶点缓冲器
 
 /**
 * 主函数
@@ -85,4 +45,48 @@ int main(int argc, char ** argv) {
 	glutMainLoop();
 
 	return 0;
+}
+
+
+/**
+* 渲染回调函数
+*/
+static void RenderScenceCB() {
+	// 清空颜色缓存
+	glClear(GL_COLOR_BUFFER_BIT);
+
+	// 开启顶点属性
+	glEnableVertexAttribArray(0);
+	// 绑定GL_ARRAY_BUFFER缓冲器
+	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+	// 告诉管线怎样解析bufer中的数据
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
+
+	// 开始绘制几何图形(绘制一个三角形，三个顶点)
+	glDrawArrays(GL_TRIANGLES, 0, 3);
+
+	//  禁用顶点数据
+	glDisableVertexAttribArray(0);
+
+	// 交换前后缓存
+	glutSwapBuffers();
+}
+
+/**
+* 创建顶点缓冲器
+*/
+static void CreateVertexBuffer() {
+	// 创建含有3个顶点的顶点数组
+	Vector3f Vertices[3];
+	// 三角形的三个顶点位置
+	Vertices[0] = Vector3f(-1.0f, -1.0f, 0.0f);
+	Vertices[1] = Vector3f(1.0f, -1.0f, 0.0f);
+	Vertices[2] = Vector3f(0.0f, 1.0f, 0.0f);
+
+	// 创建缓冲器
+	glGenBuffers(1, &VBO);
+	// 绑定GL_ARRAY_BUFFER缓冲器
+	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+	// 绑定顶点数据
+	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertices), Vertices, GL_STATIC_DRAW);
 }

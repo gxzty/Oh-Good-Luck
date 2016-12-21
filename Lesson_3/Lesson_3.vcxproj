@@ -72,9 +72,6 @@
   <ItemGroup>
     <ClCompile Include="lesson_3.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="math_3d.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

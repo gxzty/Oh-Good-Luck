@@ -4,26 +4,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lesson_1", "Lesson_1\Lesson_1.vcxproj", "{EF4AA7D9-BF9B-44BC-8229-04F575D78B05}"
-	ProjectSection(ProjectDependencies) = postProject
-		{531A02CB-A688-40A9-9668-35D5B81904D6} = {531A02CB-A688-40A9-9668-35D5B81904D6}
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lesson_2", "Lesson_2\Lesson_2.vcxproj", "{7BEEEF8F-0A22-4CDE-893D-20D8E77527B3}"
-	ProjectSection(ProjectDependencies) = postProject
-		{531A02CB-A688-40A9-9668-35D5B81904D6} = {531A02CB-A688-40A9-9668-35D5B81904D6}
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lesson_3", "Lesson_3\Lesson_3.vcxproj", "{1D8D0CC7-9CF4-47EF-8795-23FD45666D40}"
-	ProjectSection(ProjectDependencies) = postProject
-		{531A02CB-A688-40A9-9668-35D5B81904D6} = {531A02CB-A688-40A9-9668-35D5B81904D6}
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lesson_4", "Lesson_4\Lesson_4.vcxproj", "{9FA31E53-62AD-49B4-A7E6-3F7545ACB84E}"
-	ProjectSection(ProjectDependencies) = postProject
-		{531A02CB-A688-40A9-9668-35D5B81904D6} = {531A02CB-A688-40A9-9668-35D5B81904D6}
-	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OpenGL", "OpenGL\OpenGL.vcxproj", "{531A02CB-A688-40A9-9668-35D5B81904D6}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lesson_5", "Lesson_5\Lesson_5.vcxproj", "{DE92932C-4AFE-460A-91A8-7F2E03B986F6}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_OpenGL", "OpenGL\OpenGL.vcxproj", "{531A02CB-A688-40A9-9668-35D5B81904D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +37,10 @@ Global
 		{9FA31E53-62AD-49B4-A7E6-3F7545ACB84E}.Debug|Win32.Build.0 = Debug|Win32
 		{9FA31E53-62AD-49B4-A7E6-3F7545ACB84E}.Release|Win32.ActiveCfg = Release|Win32
 		{9FA31E53-62AD-49B4-A7E6-3F7545ACB84E}.Release|Win32.Build.0 = Release|Win32
+		{DE92932C-4AFE-460A-91A8-7F2E03B986F6}.Debug|Win32.ActiveCfg = Debug|Win32
+		{DE92932C-4AFE-460A-91A8-7F2E03B986F6}.Debug|Win32.Build.0 = Debug|Win32
+		{DE92932C-4AFE-460A-91A8-7F2E03B986F6}.Release|Win32.ActiveCfg = Release|Win32
+		{DE92932C-4AFE-460A-91A8-7F2E03B986F6}.Release|Win32.Build.0 = Release|Win32
 		{531A02CB-A688-40A9-9668-35D5B81904D6}.Debug|Win32.ActiveCfg = Debug|Win32
 		{531A02CB-A688-40A9-9668-35D5B81904D6}.Debug|Win32.Build.0 = Debug|Win32
 		{531A02CB-A688-40A9-9668-35D5B81904D6}.Release|Win32.ActiveCfg = Release|Win32
