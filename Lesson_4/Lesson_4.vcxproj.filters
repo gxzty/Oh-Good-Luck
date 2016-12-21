@@ -23,7 +23,7 @@
     <None Include="shader.vs">
       <Filter>源文件</Filter>
     </None>
-    <None Include="shader.fragshader">
+    <None Include="shader.fs">
       <Filter>源文件</Filter>
     </None>
   </ItemGroup>

@@ -8,7 +8,47 @@
 GLuint VBO;
 
 const char *pVSFileName = "shader.vs";
-const char *pFSFileName = "shader.fragshader";
+const char *pFSFileName = "shader.fs";
+
+static void RenderSceneCB();  // 渲染回调函数
+static void InitializeGlutCallbacks();  // 初始化回调函数
+static void CreateVertexBuffer();  // 创建顶点缓冲器
+static void AddShader(GLuint ShaderProgram, const char *pShaderText, GLenum ShaderType);  // 从字符串中编译shader并绑定到ShaderProgram上
+static void CompileShader();  // 调用函数编译shader
+
+
+
+
+int main(int argc, char *argv[]) {
+	glutInit(&argc, argv);
+	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
+	glutInitWindowSize(1024, 768);
+	glutInitWindowPosition(100, 100);
+	glutCreateWindow("Lesson_4");
+
+	InitializeGlutCallbacks();
+
+	// 必须在glut初始化之后
+	GLenum res = glewInit();
+	if (res != GLEW_OK) {
+		fprintf(stderr, "Error:'%s'\n", glewGetErrorString(res));
+		return 1;
+	}
+
+	printf("GL Version: %s\n", glGetString(GL_VERSION));
+	
+	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+
+	CreateVertexBuffer();
+
+	// 编译着色器
+	CompileShader();
+
+	glutMainLoop();
+
+	return 0;
+}
+
 
 static void RenderSceneCB() {
 	glClear(GL_COLOR_BUFFER_BIT);
@@ -17,14 +57,14 @@ static void RenderSceneCB() {
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
 
-   // 绘制一个三角形
+	// 绘制一个三角形
 	glDrawArrays(GL_TRIANGLES, 0, 3);
 	glDisableVertexAttribArray(0);
 
 	glutSwapBuffers();
 }
 
-static void InitializeGlutCallbacks(){
+static void InitializeGlutCallbacks() {
 	glutDisplayFunc(RenderSceneCB);
 }
 
@@ -39,8 +79,8 @@ static void CreateVertexBuffer() {
 	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertices), Vertices, GL_STATIC_DRAW);
 }
 
-static void AddShader(GLuint ShaderProgram, const char *pShaderText, GLenum ShaderType){
-    // 根据shader类型参数定义两个shader对象
+static void AddShader(GLuint ShaderProgram, const char *pShaderText, GLenum ShaderType) {
+	// 根据shader类型参数定义两个shader对象
 	GLuint ShaderObj = glCreateShader(ShaderType);
 
 	// 检查是否定义成功
@@ -71,25 +111,25 @@ static void AddShader(GLuint ShaderProgram, const char *pShaderText, GLenum Shad
 	glAttachShader(ShaderProgram, ShaderObj);
 }
 
-static void CompileShader(){
+static void CompileShader() {
 	// 创建着色器程序
 	GLuint ShaderProgram = glCreateProgram();
 
-	// 检查是否创建成功]
+	// 检查是否创建成功
 	if (ShaderProgram == 0) {
 		fprintf(stderr, "Error creating shader program\n");
 		exit(1);
 	}
 	// 存储着色器文本的字符串缓冲
 	string vs, fs;
-    // 分别读取着色器文件中的文本到字符串缓冲区
+	// 分别读取着色器文件中的文本到字符串缓冲区
 	if (!ReadFile(pVSFileName, vs)){
 		exit(1);
 	}
 	if (!ReadFile(pFSFileName, fs)){
 		exit(1);
 	}
-	
+
 	// 添加vertex_shader和fragment_shader
 	AddShader(ShaderProgram, vs.c_str(), GL_VERTEX_SHADER);
 	AddShader(ShaderProgram, fs.c_str(), GL_FRAGMENT_SHADER);
@@ -116,34 +156,4 @@ static void CompileShader(){
 
 	// 设置到管线生命中来使用上面成功建立的shader程序
 	glUseProgram(ShaderProgram);
-}
-
-int main(int argc, char *argv[]) {
-	glutInit(&argc, argv);
-	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
-	glutInitWindowSize(1024, 768);
-	glutInitWindowPosition(100, 100);
-	glutCreateWindow("Lesson_4");
-
-	InitializeGlutCallbacks();
-
-	// 必须在glut初始化之后
-	GLenum res = glewInit();
-	if (res != GLEW_OK) {
-		fprintf(stderr, "Error:'%s'\n", glewGetErrorString(res));
-		return 1;
-	}
-
-	printf("GL Version: %s\n", glGetString(GL_VERSION));
-	
-	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-
-	CreateVertexBuffer();
-
-	// 编译着色器
-	CompileShader();
-
-	glutMainLoop();
-
-	return 0;
 }
