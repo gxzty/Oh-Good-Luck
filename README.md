@@ -5,6 +5,9 @@ OpenGL (Open Graphics Library)
 2. OpenGL：
  * 是一个大状态机,注意上下文
  * 是C/S架构，GPU是服务器，CPU是客户端
+ * 一五得五,二五一十,三五太难了:
+     *  glutDisplayFunc(&MyDisplay);  // lesson_1
+         * 回调函数不会重复调用, 只有在窗口大小发生变化, 或者从别的窗口后面重新出现等情况时才会调用一次
 3. lesson_1: 创建窗口,画正方形
  * Lens:
      * **glutInitDisplayMode(GLUT_RGB | GLUT_SINGLE);**
@@ -41,8 +44,10 @@ OpenGL (Open Graphics Library)
  * Lens:
      * "math_3d.h"
          * 其中声明了一个Vector3f结构体，Vector3f(x, y, z)
+         * **已经替换为教程作者使用的ogldev_math_3d.h**
      * **\#pragma comment(lib, "glew32d.lib")**
          * 将库glew32d.lib加入到本工程
+         * **通过设置链接器, 可不用代码中使用这一句**
      * GLenum res = glewInit();
          * 检查GLEW是否就绪，若就绪则glewInit会返回GLEW_OK
          * 若失败则输出错误信息
@@ -71,9 +76,7 @@ OpenGL (Open Graphics Library)
      * **glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);**
      * **glBufferData(GL_ARRAY_BUFFER, sizeof(Vertices), Vertices, GL_STATIC_DRAW);**  // Vector3f Vertices[1];
 5. lesson_3:创建窗口,画三角形
+6. lesson_4:Shader
  * Lens:
-     * glDrawArrays(GL_TRIANGLES, 0, 3);
-         * 从数组中渲染图元,此处使用的是GL_TRIANGLES,还有别的很多可选参数
-         * 参数图元类型,数组起始位置,顶点数量
-         * 数组为之前glBindBuffer所绑定的缓冲区数组
+     * 
 # // TO BE CONTINUED
