@@ -14,7 +14,7 @@ static void RenderSceneCB();  // 渲染回调函数
 static void InitializeGlutCallbacks();  // 初始化回调函数
 static void CreateVertexBuffer();  // 创建顶点缓冲器
 static void AddShader(GLuint ShaderProgram, const char *pShaderText, GLenum ShaderType);  // 从字符串中编译shader并绑定到ShaderProgram上
-static void CompileShader();  // 调用函数编译shader
+static void CompileShaders();  // 调用函数编译shader
 
 
 
@@ -111,7 +111,7 @@ static void AddShader(GLuint ShaderProgram, const char *pShaderText, GLenum Shad
 	glAttachShader(ShaderProgram, ShaderObj);
 }
 
-static void CompileShader() {
+static void CompileShaders() {
 	// 创建着色器程序
 	GLuint ShaderProgram = glCreateProgram();
 
