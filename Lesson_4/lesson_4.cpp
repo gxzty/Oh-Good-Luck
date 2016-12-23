@@ -42,7 +42,7 @@ int main(int argc, char *argv[]) {
 	CreateVertexBuffer();
 
 	// ±àÒë×ÅÉ«Æ÷
-	CompileShader();
+	CompileShaders();
 
 	glutMainLoop();
 
