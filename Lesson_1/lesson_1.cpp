@@ -1,6 +1,6 @@
 /// 创建一个窗口,画一个正方形
 #include <stdio.h>
-#include <GL/glut.h>
+#include <GL/freeglut.h>
 
 void Initial(void);  // 初始化函数,这里初始化了glClearColor
 void MyDisplay(void);  // 回调函数

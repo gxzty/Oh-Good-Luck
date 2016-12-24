@@ -1,7 +1,7 @@
 /// 画一个点
 #include <stdio.h>
 #include <GL/glew.h>
-#include <GL/freeglut.h>
+#include <GL/freeglut.h>  // 注意顺序, glew.h必须在freeglut.h之前引用
 
 #include "ogldev_math_3d.h"
 
