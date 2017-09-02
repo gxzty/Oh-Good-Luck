@@ -40,8 +40,9 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(SolutionDir)\OpenGL\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)\Debug;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)\freeglut3\include\;$(SolutionDir)\OpenGL\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\freeglut3\lib;$(SolutionDir)\Debug;$(LibraryPath)</LibraryPath>
+    <ExecutablePath>$(SolutionDir)\freeglut3\dll\;$(VC_ExecutablePath_x86);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(SystemRoot)\SysWow64;$(FxCopDir);$(PATH);</ExecutablePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -49,7 +50,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>
       </SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)\OpenGL\include;$(SolutionDir)\OpenGL\include\assimp;$(SolutionDir)\OpenGL\include\ImageMagick-6;$(SolutionDir)\OpenGL\include\ATB;$(SolutionDir)\OpenGL\include\vulkan</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\freeglut3\dll;$(SolutionDir)\OpenGL\include;$(SolutionDir)\OpenGL\include\assimp;$(SolutionDir)\OpenGL\include\ImageMagick-6;$(SolutionDir)\OpenGL\include\ATB;$(SolutionDir)\OpenGL\include\vulkan</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader />
     </ClCompile>
